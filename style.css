@@ -1,0 +1,94 @@
+body{
+    background-color: #f0f0f0;
+    color: black;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+progress[value]{
+    -webkit-appearance: none;
+     appearance: none;
+     border: none;
+     -moz-appearance: none;
+     width: 100%;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(top, 
+                                 rgba(255, 255, 255, .25), 
+                                 rgba(0, 0, 0, .25)),
+         -webkit-linear-gradient(left,#f44 , rgb(0, 204, 10));
+  
+      border-radius: 2px; 
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+      transition: width 0.5s;
+      -webkit-transition: width 0.5s;
+}
+
+progress[value]::-moz-progress-bar { 
+    background-image:
+      -moz-linear-gradient(
+        135deg, 
+        transparent 33%, 
+        rgba(0, 0, 0, 0.1) 33%, 
+        rgba(0, 0, 0, 0.1) 66%, 
+        transparent 66% 
+      ),
+      -moz-linear-gradient(
+        top, 
+        rgba(255, 255, 255, 0.25), 
+        rgba(0, 0, 0, 0.25)
+      ),
+      -moz-linear-gradient(
+        left, 
+        #f44, 
+        rgb(0, 204, 10)
+      );
+  
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s; 
+  }
+
+  #combatLogTextArea{
+    height: 300px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    overflow: scroll;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .vidaFont{
+    font-family: 'VT323', monospace;
+    font-size: 5vh;
+  }
+  
+  .characterPortrait{
+    border-radius: 10px;
+    border: 5px solid black;
+  }
+
+  .modal-body{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .product .img-responsive {
+    margin: 0 auto;
+}

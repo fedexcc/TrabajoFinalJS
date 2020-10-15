@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Juego!</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <h1>Derrota al enemigo!</h1>
+            </div>
+            <div class="col-1">
+        <!-- Trigger del Tutorial -->
+        <button type="button" class="btn btn-primary float-right btn-lg" data-toggle="modal" data-target="#tutorialModal">
+            TUTORIAL
+        </button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h4 class="vidaFont">Vida del enemigo:</h4>
+        </div>
+        <div class="col-6">
+            <progress id="enemyLifeID" value="100" max="100"></progress>
+        </div>
+        <!--OLD enemyLifeID, BORRAR EN VERSION FINAL SI YA NO NECESITO CODIGO-->
+        <!-- <div class="col-6"> !
+            <div class="progress">!
+               <div id="enemyLifeID" class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div> !
+           </div>!
+        </div>! -->
+        <!-- *FIN* OLD enemyLifeID, BORRAR EN VERSION FINAL SI YA NO NECESITO CODIGO-->
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-3">
+                <img class="characterPortrait" src="./assets/img/Enemigo.jpg" alt="" style="height: 150px; width: 150px;">
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-3">
+                <img class="characterPortrait" src="./assets/img/Personaje.jpg" alt="" style="height: 150px; width: 150px;">
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <h4 class="vidaFont">Vida actual:</h4>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-6">
+                <progress id="myLifeID" value="100" max="100" class="ui-progressbar-value"></progress>
+            </div>
+            <!-- <div class="col-6">
+                <div class="progress">
+                <div id="myLifeID" class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-3"></div>
+            <div class="col-3">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <button type="button" class="btn btn-outline-dark btn-group btn-lg" id="atacar" role="group">Atacar</button>
+                    <button type="button" class="btn btn-outline-dark btn-group btn-lg" id="curar" role="group">Curar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-8" id="combatLogTextArea">
+                <p id="combatLog"><b>Registro de combate:</b></p>
+            </div>
+        </div>
+        <div class="row text-right">
+            <div class="col">
+                <small id="loadedDate"></small>
+            </div>
+        </div>
+    </div>
+    <!-- Tutorial Modal -->
+<div class="modal fade" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="tutorialModalTitle">Tutorial:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>Se estan robando todas las hamburguesas!</p>
+            <p>El enemigo ataca automaticamente cada 3 segundos.</p>
+            <p>Presiona el boton de ATACAR para bajar la vida del enemigo.</p>
+            <p>Presiona el boton de CURAR para recuperar tu salud.</p>
+            <p>Suerte!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- WIN Modal -->
+  <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="winModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="winModalTitle">GANASTE!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src="./assets/img/win.jpg" class="mx-auto d-block img-fluid" alt="Ganaste!">
+            <p class="text-center">Homero derrotó al ladrón de hamburguesas!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button id="reloadWeb" type="button" class="btn btn-primary">Reintentar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- GAME OVER Modal -->
+    <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="gameOverModalTitle">GAME OVER!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="./assets/img/gameOver.jpg" class="mx-auto d-block img-fluid" alt="GAME OVER!">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center">El ladrón de hamburguesas te derrotó y se ha robado todas la hamburguesas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button id="reloadWeb" type="button" class="btn btn-primary">Reintentar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- JS de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="game.js"></script>
+</body>
+</html>
